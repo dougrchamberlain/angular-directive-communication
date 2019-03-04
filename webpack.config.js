@@ -4,6 +4,9 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   mode: 'development',
+  optimization: {
+    usedExports: true
+  },
   entry: {
     app: './src/index.js'
   },
@@ -14,21 +17,24 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'angular-directive-communication',
-      template: './src/index.html'
+      template: './src/index.html',
+      cache: true,
+      hash: true
+
     }),
     new CleanWebpackPlugin(['dist/*'])
   ],
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname,'dist')
+    path: path.resolve(__dirname, 'dist')
   },
   module: {
     rules: [
       {
         test: /\.css$/,
         use: [
-        'style-loader',
-        'css-loader'
+          'style-loader',
+          'css-loader'
         ]
       }
     ]
