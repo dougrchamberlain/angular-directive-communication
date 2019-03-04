@@ -5,10 +5,14 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
   mode: 'development',
   optimization: {
-    usedExports: true
+    usedExports: true,
+    splitChunks: {
+      chunks: 'all'
+    }
   },
   entry: {
-    app: './src/index.js'
+    app: './src/index.js',
+    vendor: './node_modules/angular'
   },
   devtool: 'inline-source-map',
   devServer: {
@@ -35,6 +39,14 @@ module.exports = {
         use: [
           'style-loader',
           'css-loader'
+        ]
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          'style-loader', // creates style nodes from JS strings
+          'css-loader', // translates CSS into CommonJS
+          'sass-loader' // compiles Sass to CSS, using Node Sass by default
         ]
       }
     ]

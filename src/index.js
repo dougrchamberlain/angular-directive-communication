@@ -1,7 +1,20 @@
-import './style.css';
+import 'angular';
+import 'angular-animate';
+import 'angular-aria';
+import 'angular-material';
+import 'angular-ui-router';
+import 'angular-material/angular-material.css'
 
-function myFunction(){
-  console.log('i am working');
-}
+angular.module('myApp',
+  ['ngMaterial', 'ui.router', 'ngAnimate'])
+  .controller('myController', [
+    function () {
+      //fake gettting data from a database. work more quickly
+      var vm = this;
 
-myFunction();
+      vm.$onInit = function () {
+        vm.data = require('./data/main-app-data.json');
+      }
+
+    }
+  ])
