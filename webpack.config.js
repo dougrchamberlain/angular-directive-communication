@@ -11,8 +11,7 @@ module.exports = {
     }
   },
   entry: {
-    app: './src/index.js',
-    vendor: './node_modules/angular'
+    app: './src/index.js'
   },
   devtool: 'inline-source-map',
   devServer: {

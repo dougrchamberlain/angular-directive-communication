@@ -1,6 +1,32 @@
-{
-    "name": "this is the first record",
-    "saved": false,
-    "id": 1,
-    "deleted": false
-}
+[
+    {
+        "name": "this is the first record",
+        "saved": false,
+        "id": 1,
+        "deleted": false
+    },
+    {
+        "name": "this is the first record",
+        "saved": false,
+        "id": 2,
+        "deleted": false
+    },
+    {
+        "name": "this is the first record",
+        "saved": false,
+        "id": 3,
+        "deleted": false
+    },
+    {
+        "name": "this is the first record",
+        "saved": false,
+        "id": 4,
+        "deleted": false
+    },
+    {
+        "name": "this is the first record",
+        "saved": false,
+        "id": 5,
+        "deleted": false
+    }
+]
