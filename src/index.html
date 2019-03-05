@@ -8,56 +8,29 @@
 </head>
 
 <body ng-app="myApp" ng-controller="myController as vm">
-  <md-toolbar class="md-toolbar-tools" layout="row" layout-align="start center">
-    <md-button ng-click="vm.toggleMenu();">
-      <md-icon>menu</md-icon>
-    </md-button>
-    <md-button>
-      <md-icon>home</md-icon>
-    </md-button>
-    <div>
-      id: {{vm.current.id}} | name: {{vm.current.name}} | saved: {{vm.current.saved}} | deleted: {{vm.current.deleted}}
-    </div>
-  </md-toolbar>
-  <section>
-    <md-sidenav flex class="md-sidenav-left" md-component-id="left" md-whiteframe="4"
-      md-is-locked-open="$mdMedia('gt-md')">
-      <md-toolbar>
-        <h1 class="md-toolbar-tools">Sidenav Left</h1>
-        <md-list>
-          <md-list-item ng-repeat="item in vm.all">
-            <md-button ng-click="vm.current = item">
-              <md-icon>open_in_new</md-icon>
-
-              {{item.id}}
-            </md-button>
-          </md-list-item>
-        </md-list>
+  <chart-layout>
+    <chart-header>
+      <md-toolbar class="md-toolbar-tools">
+        <h2>{{vm.encounter.name}}</h2>
       </md-toolbar>
-      <md-content layout-padding>
-        <md-button ng-click="vm.toggleMenu()" class="md-primary" hide-gt-md>
-          Close Sidenav Left
-        </md-button>
-        <p hide show-gt-md>
-          This sidenav is locked open on your device. To go back to the default behavior,
-          narrow your display.
-        </p>
+    </chart-header>
+    <chart-body>
+      <md-content>
+        <section ng-repeat="(key, section) in vm.sections">
+          <div ng-include src="key" ng-init="data=vm.encounter"></div>
+        </section>
       </md-content>
-
-    </md-sidenav>
-  </section>
-  <section>
-    <md-content>
-      <form name="thispage" layout-padding>
-        <span>{{thispage.$dirty}}</span>
-        <md-input-container>
-          <label for="">name</label>
-          <input name="name" type="text" ng-model="vm.current.name">
-          <span>{{name.$dirty}}</span>
-        </md-input-container>
-      </form>
-    </md-content>
-  </section>
+    </chart-body>
+  </chart-layout>
+  <script type="text/ng-template" id="allergies">
+    <p>well I will show the summary items for allergies</p>
+    <pre>{{data}}</pre>
+    <div>since I know all about your encounter AND your allergies. I can display the for to add/edit/delete allergies</div>
+    <form action="" name="allergies">
+      <input type="text" ng-model="data.allergies[0]">
+      <em>if you add/remove me. it doesn't matter, I'm bound to the parent encounter!</em>
+    </form>
+  </script>
 </body>
 
 </html>

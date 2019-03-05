@@ -47,6 +47,16 @@ module.exports = {
           'css-loader', // translates CSS into CommonJS
           'sass-loader' // compiles Sass to CSS, using Node Sass by default
         ]
+      },
+      {
+        test: /\.html$/,
+        exclude: [
+          path.resolve(__dirname, './src/index.html')
+        ],
+        use: [
+          'ng-cache-loader?prefix=[dir]/[dir]',
+
+        ]
       }
     ]
   }
