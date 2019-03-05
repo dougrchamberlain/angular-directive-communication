@@ -1,7 +1,25 @@
 [
     {
         "id": 1,
-        "name": "Patient 1",
+        "name": "Encounter 1",
+        "allergies": [
+            "drug 1",
+            "eggs",
+            "bacon",
+            "water"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Encounter 2",
+        "allergies": [
+            "bacon",
+            "tylenol"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Encounter 3",
         "allergies": []
     }
 ]

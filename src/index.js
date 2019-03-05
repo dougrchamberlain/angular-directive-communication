@@ -17,19 +17,33 @@ angular.module('myApp',
       var vm = this;
 
       vm.$onInit = function () {
+        vm.allergies = require('./data/allergies');
         vm.getEncounter();
       };
 
       vm.getEncounter = function () {
-        vm.encounter = require('./data/encounters')[0];
-        vm.sections = require('./data/sections');
-        console.log(vm.encounter, vm.sections);
+        vm.encounters = require('./data/encounters');
+        vm.setEncounter(vm.encounters[0]);
+      }
+
+      vm.setEncounter = function (encounter) {
+        vm.encounter = encounter;
+        vm.updateSections();
+      }
+
+      vm.updateSections = function () {
+        vm.sections = Object.assign({}, require('./data/sections'));
+        console.log('sections', vm);
       }
 
       vm.toggleMenu = function () {
-        $mdSidenav('left').toggle();
+        $mdSidenav('encounter-list').toggle();
       };
 
+      vm.filterAllergies = function (search) {
+        console.log('allergies');
+        return vm.allergies.filter(function (a) { return new RegExp(search).test(a); })
+      }
     }
   ]).config(['$urlRouterProvider', function ($urlRouterProvider) {
     //if not route is provided, always go to /encounter
