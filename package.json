@@ -5,7 +5,7 @@
   "private": true,
   "sideEffects": false,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "watch": "webpack --watch",
     "start": "webpack-dev-server --open",
     "build": "webpack"
@@ -13,11 +13,25 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "angular-mocks": "^1.7.7",
     "clean-webpack-plugin": "^1.0.1",
     "css-loader": "^2.1.0",
     "eslint": "^5.15.1",
+    "eslint-config-defaults": "^9.0.0",
+    "eslint-plugin-angular": "^4.0.0",
     "eslint-plugin-react": "^7.12.4",
     "html-webpack-plugin": "^3.2.0",
+    "karma": "^4.0.1",
+    "karma-babel-preprocessor": "^8.0.0-beta.0",
+    "karma-beep-reporter": "^0.1.4",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-cli": "^2.0.0",
+    "karma-jasmine": "^2.0.1",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^3.0.5",
     "ng-cache-loader": "0.0.26",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
@@ -33,6 +47,6 @@
     "angular-material": "^1.1.13",
     "angular-messages": "^1.7.7",
     "angular-ui-router": "^1.0.22",
-    "eslint-plugin-angular": "^4.0.0"
+    "normalize.css": "^8.0.1"
   }
 }

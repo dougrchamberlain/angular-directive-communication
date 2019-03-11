@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html ng-app="myApp">
 
 <head>
   <meta charset="utf-8">
@@ -7,46 +7,9 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
-<body ng-app="myApp" ng-controller="myController as vm">
-  <chart-layout>
-    <chart-header>
-      <md-toolbar class="md-toolbar-tools">
-        <md-button>
-          <md-icon ng-click="vm.toggleMenu()">menu</md-icon>
-        </md-button>
-        <h2>{{vm.encounter.name}}</h2>
-      </md-toolbar>
-    </chart-header>
-    <chart-body>
-      <div>
-        <md-list>
-          <md-list-item ng-repeat="encounter in vm.encounters">
-            <md-button ng-class="vm.encounter == encounter ? 'active' : ''" ng-click="vm.setEncounter(encounter);">
-              {{encounter.name}}</md-button>
-          </md-list-item>
-        </md-list>
-      </div>
-      <md-content layout-padding md-whiteframe="4">
-        <section ng-repeat="(key, section) in vm.sections track by $index">
-          <div ng-include src="key" ng-init="data=vm.encounter"></div>
-        </section>
-      </md-content>
-    </chart-body>
-  </chart-layout>
-  <script type="text/ng-template" id="allergies">
-    <p>well I will show the summary items for allergies</p>
-    <pre>{{vm.encounter }}</pre>
-    <div>since I know all about your encounter AND your allergies. I can display the for to add/edit/delete allergies</div>
-    <form action="" name="allergies">
-      <md-chips ng-model="vm.encounter.allergies">
-          <md-autocomplete md-items="allergy in vm.filterAllergies(vm.allergyFilter)" md-selected-item="vm.selectedAllergy" md-item-text="allergy" md-search-text="vm.allergyFilter">{{allergy}}</md-autocomplete>
-      </md-chips>      
+<body ng-cloak>
+  <p>hello!</p>
 
-      <div ng-messages="allergies.$error">
-          <div ng-message="error">You reached the maximum amount of chips</div>
-       </div>      
-    </form>
-  </script>
 </body>
 
 </html>
